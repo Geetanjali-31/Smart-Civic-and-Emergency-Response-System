@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { api } from '../services/api';
+import { api, BASE_URL } from '../services/api';
 
 const AuthContext = createContext();
 
@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
             if (savedToken) {
                 try {
                     // Try to fetch fresh user profile from backend
-                    const response = await fetch('http://127.0.0.1:5000/api/profile', {
+                    const response = await fetch(`${BASE_URL}/profile`, {
                         headers: {
                             'Authorization': `Bearer ${savedToken}`
                         }

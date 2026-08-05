@@ -4,7 +4,8 @@ import { calculateSlaDueDate, getSlaStatus } from '../utils/slaEngine';
 import { findPotentialDuplicates } from '../utils/duplicateDetection';
 import { createAuditEntry, appendAuditLog } from '../utils/auditLogger';
 
-const BASE_URL = 'http://127.0.0.1:5000/api';
+const API_HOST = import.meta.env.VITE_API_BASE_URL || 'https://onrender.com';
+export const BASE_URL = `${API_HOST.replace(/\/+$/, '')}/api`;
 const STORAGE_KEY = 'innovista_custom_services_v6';
 const NOTIF_STORAGE_KEY = 'innovista_notifications_v1';
 const REGISTERED_USERS_KEY = 'innovista_registered_users_v2';
