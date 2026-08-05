@@ -16,7 +16,8 @@ def create_app():
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
     # Database configuration
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///sevasetu.db')
+    default_db = 'sqlite:////tmp/sevasetu.db' if os.environ.get('VERCEL') else 'sqlite:///sevasetu.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', default_db)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'super-secret-key')
 
