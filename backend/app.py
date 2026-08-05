@@ -90,9 +90,17 @@ def update_db_schema():
     except Exception as e:
         print(f"Schema update info: {str(e)}")
 
-if __name__ == '__main__':
-    app = create_app()
-    with app.app_context():
+app = create_app()
+
+with app.app_context():
+    try:
         db.create_all()
         update_db_schema()
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    except Exception as e:
+        print(f"Database init warning: {e}")
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+
