@@ -1,7 +1,11 @@
 {
     "rewrites": [
         {
-            "source": "/api/(.*)",
+            "source": "/(login|signup|auth|register|api)/(.*)",
+            "destination": "https://onrender.com"
+        },
+        {
+            "source": "/(login|signup|register)",
             "destination": "https://onrender.com"
         }
     ]
