@@ -81,16 +81,26 @@ const handleResponse = async (response) => {
 };
 
 const safeFetch = async (url, options = {}, mockFallback = null) => {
+  let fullUrl = url;
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    const cleanPath = url.startsWith('/') ? url : `/${url}`;
+    if (cleanPath.startsWith('/api/')) {
+      fullUrl = `${API_HOST}${cleanPath}`;
+    } else {
+      fullUrl = `${BASE_URL}${cleanPath}`;
+    }
+  }
+
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(fullUrl, options);
     return await handleResponse(response);
   } catch (error) {
     if (mockFallback !== null && (error.message === 'Failed to fetch' || error.name === 'TypeError' || error.message.includes('Unable to connect'))) {
-      console.warn(`[Offline Fallback] Backend server unreachable at ${url}.`);
+      console.warn(`[Offline Fallback] Backend server unreachable at ${fullUrl}.`);
       return mockFallback;
     }
     if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
-      throw new Error('Unable to connect to Flask backend server. Please make sure python app.py is running.');
+      throw new Error('Unable to connect to Flask backend server at https://onrender.com. Please check your Render service status.');
     }
     throw error;
   }

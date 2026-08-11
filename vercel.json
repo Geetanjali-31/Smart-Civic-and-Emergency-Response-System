@@ -1,12 +1,12 @@
 {
-    "rewrites": [
-        {
-            "source": "/(login|signup|auth|register|api)/(.*)",
-            "destination": "https://onrender.com"
-        },
-        {
-            "source": "/(login|signup|register)",
-            "destination": "https://onrender.com"
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://onrender.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
