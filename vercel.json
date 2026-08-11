@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://onrender.com/api/$1"
+      "destination": "https://smart-civic-and-emergency-response-system.onrender.com/api/$1"
     },
     {
       "source": "/(.*)",

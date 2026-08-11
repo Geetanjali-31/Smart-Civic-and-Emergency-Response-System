@@ -4,8 +4,8 @@ import { calculateSlaDueDate, getSlaStatus } from '../utils/slaEngine';
 import { findPotentialDuplicates } from '../utils/duplicateDetection';
 import { createAuditEntry, appendAuditLog } from '../utils/auditLogger';
 
-const API_HOST = 'https://onrender.com';
-export const BASE_URL = 'https://onrender.com/api';
+const API_HOST = import.meta.env.VITE_API_BASE_URL || 'https://smart-civic-and-emergency-response-system.onrender.com';
+export const BASE_URL = `${API_HOST.replace(/\/+$/, '')}/api`;
 const STORAGE_KEY = 'innovista_custom_services_v6';
 const NOTIF_STORAGE_KEY = 'innovista_notifications_v1';
 const REGISTERED_USERS_KEY = 'innovista_registered_users_v2';
@@ -100,7 +100,7 @@ const safeFetch = async (url, options = {}, mockFallback = null) => {
       return mockFallback;
     }
     if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
-      throw new Error('Unable to connect to Flask backend server at https://onrender.com. Please check your Render service status.');
+      throw new Error(`Unable to connect to Flask backend server at ${API_HOST}. Please check your Render service status.`);
     }
     throw error;
   }
