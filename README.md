@@ -1,6 +1,12 @@
 # 🏛️ Seva Setu (सेवा सेतु)
 ### Smart Civic & Rapid Emergency Response System
 
+## 🌐 Live Demo
+
+🚀 **[Click Here to Explore Seva Setu](https://smart-civic-and-emergency-response.vercel.app)**
+
+Seva Setu is a smart civic grievance redressal and emergency response platform that connects citizens with responsible authorities for faster complaint resolution.
+
 [![React](https://img.shields.io/badge/Frontend-React_19_%2B_Vite-61DAFB?style=flat-square&logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS_v4-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![Python Flask](https://img.shields.io/badge/Backend-Python_Flask-000000?style=flat-square&logo=flask)](https://flask.palletsprojects.com/)
