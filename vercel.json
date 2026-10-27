@@ -2,22 +2,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/app"
+      "destination": "https://onrender.com"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-  "builds": [
-    {
-      "src": "api/app.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
     }
   ]
 }
