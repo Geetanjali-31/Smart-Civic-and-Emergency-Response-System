@@ -10,6 +10,7 @@ import {
   FileWarning,
   Activity,
   Bell,
+  Inbox,
   List,
   User,
   Map as MapIcon,
@@ -33,7 +34,7 @@ export default function DashboardLayout({ role }) {
       try {
         const token = localStorage.getItem('token');
         if (token) {
-          const data = await api.getNotifications(token);
+          const data = await api.getNotifications();
           setHasUnread(data.some(n => n.is_unread));
         }
       } catch (err) {
@@ -59,7 +60,7 @@ export default function DashboardLayout({ role }) {
   const authorityNav = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'Dashboard', path: '/authority/dashboard', icon: LayoutDashboard },
-    { name: 'Live Requests', path: '/authority/requests', icon: Bell, highlight: true },
+    { name: 'Live Requests', path: '/authority/requests', icon: Inbox, highlight: true },
     { name: 'Assigned Tasks', path: '/authority/tasks', icon: List },
     { name: 'Map View', path: '/authority/map', icon: MapIcon },
     { name: 'Notifications', path: '/authority/notifications', icon: Bell },

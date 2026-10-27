@@ -1,8 +1,6 @@
-import { generateComplaintId } from '../utils/complaintIdGenerator';
 import { analyzeAndRouteComplaint } from '../utils/smartRoutingEngine';
-import { calculateSlaDueDate, getSlaStatus } from '../utils/slaEngine';
+import { calculateSlaDueDate } from '../utils/slaEngine';
 import { findPotentialDuplicates } from '../utils/duplicateDetection';
-import { createAuditEntry, appendAuditLog } from '../utils/auditLogger';
 
 const API_HOST = import.meta.env.VITE_API_BASE_URL || 'https://smart-civic-and-emergency-response-system.onrender.com';
 export const BASE_URL = `${API_HOST.replace(/\/+$/, '')}/api`;

@@ -52,22 +52,20 @@ const MainLayout = () => {
                   </Link>
                 );
               })}
-              <div className="pl-4 ml-2 border-l border-primary-500">
-                <div className="flex items-center space-x-2 pl-4 ml-2 border-l border-primary-500">
-                  <Link
-                    to="/login"
-                    className="flex items-center px-4 py-2 text-sm rounded-md font-semibold bg-primary-700 text-white hover:bg-primary-800 transition-colors shadow-sm"
-                  >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Login
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="flex items-center px-4 py-2 text-sm rounded-md font-semibold bg-white text-primary-600 hover:bg-slate-100 transition-colors shadow-sm"
-                  >
-                    Register
-                  </Link>
-                </div>
+              <div className="flex items-center space-x-2 pl-4 ml-2 border-l border-primary-500">
+                <Link
+                  to="/login"
+                  className="flex items-center px-4 py-2 text-sm rounded-md font-semibold bg-primary-700 text-white hover:bg-primary-800 transition-colors shadow-sm"
+                >
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="flex items-center px-4 py-2 text-sm rounded-md font-semibold bg-white text-primary-600 hover:bg-slate-100 transition-colors shadow-sm"
+                >
+                  Register
+                </Link>
               </div>
             </div>
 

@@ -214,7 +214,8 @@ def profile_upload():
         file_path = os.path.join(upload_folder, new_filename)
         file.save(file_path)
 
-        image_url = f"http://127.0.0.1:5000/static/profiles/{new_filename}"
+        base_url = request.host_url.rstrip('/')
+        image_url = f"{base_url}/static/profiles/{new_filename}"
 
         if role == 'authority':
             user = Authority.query.get(user_id)
